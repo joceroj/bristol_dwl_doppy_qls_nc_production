@@ -1,0 +1,271 @@
+[all_files_mask]
+file_back_mask = "Background_*.txt"
+file_vertical_mask = "Stare_*.hpl"
+file_vad_mask = "VAD_*.hpl"
+
+[sites.BRDIFU]
+dir_mask = "/storage/research/actual01/disk1/urban/obs/LiDAR/Bristol/BRDIFU/%Y/%Y%m/%Y%m%d"
+wd_offset = 22
+
+[sites.BRFENS]
+dir_mask = "/storage/research/actual01/disk1/urban/obs/LiDAR/Bristol/BRFENS/%Y/%Y%m/%Y%m%d"
+wd_offset = 22
+
+[variables]
+
+vertical_output = ["beta_raw", "beta", "w_wind_raw", "w_wind", "elevation"]
+
+horizontal_output = [
+    "u_wind_raw",
+    "u_wind",
+    "v_wind_raw",
+    "v_wind",
+    "w_wind_raw",
+    "w_wind",
+    "ws_raw",
+    "ws",
+    "wd_raw",
+    "wd",
+    "azimuth_offset",
+]
+
+
+[netCDF]
+
+[netCDF.horizontal.encoding]
+units = "minutes since 1970-01-01 00:00:00"
+calendar = "standard"
+
+[netCDF.horizontal.global_attributes]
+title = "Horizontal wind speed and direction from Halo lidar"
+summary = ""
+keywords = "GCMD:EARTH SCIENCE, GCMD:ATMOSPHERE, GCMD:ATMOSPHERIC WINDS, GCMD:WIND PROFILES, GCMD:WIND VELOCITY/SPEED PROFILES, GCMD:WIND DIRECTION PROFILES"
+keywords_vocabulary = "GCMD:GCMD Keywords,CF:NetCDF COARDS Climate and Forecast Standard Names"
+Conventions = "CF-1.10"
+id = ""
+naming_authority = ""
+source = "observations"
+processing_level = "1a"
+comment = ""
+acknowledgement = ""
+license = "CC BY 4.0"
+standard_name_vocabulary = "CF Standard Name Table v82"
+institution = "University of Reading"
+program = "urbisphere"
+platform = "GCMD:In Situ Land-based Platforms,GCMD:GROUND-BASED OBSERVATIONS"
+platform_vocabulary = "GCMD:GCMD keywords"
+instrument = "GCMD:In Situ/Laboratory Instruments, GCMD:Profilers/Sounders, GCMD:PROFILERS"
+instrument_vocabulary = "GCMD:GCMD keywords"
+cdm_data_type = ""
+featureType = "timeSeries"
+metadata_link = ""
+references = ""
+
+[netCDF.horizontal.variables.time.metadata]
+standard_name = "time"
+long_name = "time"
+coverage_content_type = "coordinate"
+
+[netCDF.horizontal.variables.time.encoding]
+units = "minutes since 1970-01-01 00:00:00"
+calendar = "standard"
+dtype = "float64"
+
+[netCDF.horizontal.variables.range.metadata]
+long_name = "range"
+units = "m"
+coverage_content_type = "coordinate"
+
+[netCDF.horizontal.variables.range.encoding]
+dtype = "float32"
+
+[netCDF.horizontal.variables.u_wind_raw.metadata]
+standard_name = "eastward_wind"
+long_name = "eastward wind"
+units = "m s-1"
+coverage_content_type = "physicalMeasurement"
+
+[netCDF.horizontal.variables.u_wind_raw.encoding]
+dtype = "float32"
+
+[netCDF.horizontal.variables.u_wind.metadata]
+standard_name = "eastward_wind_screened"
+long_name = "eastward wind screened"
+units = "m s-1"
+coverage_content_type = "physicalMeasurement"
+
+[netCDF.horizontal.variables.u_wind.encoding]
+dtype = "float32"
+
+[netCDF.horizontal.variables.v_wind_raw.metadata]
+standard_name = "northward_wind"
+long_name = "northward wind"
+units = "m s-1"
+coverage_content_type = "physicalMeasurement"
+
+[netCDF.horizontal.variables.v_wind_raw.encoding]
+dtype = "float32"
+
+[netCDF.horizontal.variables.v_wind.metadata]
+standard_name = "northward_wind_screened"
+long_name = "northward wind screened"
+units = "m s-1"
+coverage_content_type = "physicalMeasurement"
+
+[netCDF.horizontal.variables.v_wind.encoding]
+dtype = "float32"
+
+[netCDF.horizontal.variables.w_wind_raw.metadata]
+standard_name = "vertical_wind"
+long_name = "vertical wind"
+units = "m s-1"
+coverage_content_type = "physicalMeasurement"
+
+[netCDF.horizontal.variables.w_wind_raw.encoding]
+dtype = "float32"
+
+[netCDF.horizontal.variables.w_wind.metadata]
+standard_name = "vertical_wind_screened"
+long_name = "vertical wind screened"
+units = "m s-1"
+coverage_content_type = "physicalMeasurement"
+
+[netCDF.horizontal.variables.w_wind.encoding]
+dtype = "float32"
+
+[netCDF.horizontal.variables.ws_raw.metadata]
+standard_name = "wind_speed"
+long_name = "wind speed"
+units = "m s-1"
+coverage_content_type = "physicalMeasurement"
+
+[netCDF.horizontal.variables.ws_raw.encoding]
+dtype = "float32"
+
+[netCDF.horizontal.variables.ws.metadata]
+standard_name = "wind_speed_screened"
+long_name = "wind speed screened"
+units = "m s-1"
+coverage_content_type = "physicalMeasurement"
+
+[netCDF.horizontal.variables.ws.encoding]
+dtype = "float32"
+
+[netCDF.horizontal.variables.wd_raw.metadata]
+standard_name = "wind_direction"
+long_name = "wind direction"
+units = "degree"
+coverage_content_type = "physicalMeasurement"
+
+[netCDF.horizontal.variables.wd_raw.encoding]
+dtype = "float32"
+
+[netCDF.horizontal.variables.wd.metadata]
+standard_name = "wind_direction_screened"
+long_name = "wind direction screened"
+units = "degree"
+coverage_content_type = "physicalMeasurement"
+
+[netCDF.horizontal.variables.wd.encoding]
+dtype = "float32"
+
+[netCDF.horizontal.variables.azimuth_offset.metadata]
+standard_name = "azimuth_offset"
+long_name = "azimuth offset"
+units = "degree"
+coverage_content_type = "physicalMeasurement"
+
+[netCDF.horizontal.variables.azimuth_offset.encoding]
+dtype = "float32"
+
+[netCDF.vertical.encoding]
+units = "minutes since 1970-01-01 00:00:00"
+calendar = "standard"
+
+[netCDF.vertical.global_attributes]
+title = "Vertical doppler velocity from Halo lidar"
+summary = ""
+keywords = "GCMD:EARTH SCIENCE, GCMD:ATMOSPHERE, GCMD:ATMOSPHERIC WINDS, GCMD:VERTICAL WIND PROFILES, GCMD:WIND VELOCITY/SPEED PROFILES"
+keywords_vocabulary = "GCMD:GCMD Keywords,CF:NetCDF COARDS Climate and Forecast Standard Names"
+Conventions = "CF-1.10"
+id = ""
+naming_authority = ""
+source = "observations"
+processing_level = "1a"
+comment = ""
+acknowledgement = ""
+license = "CC BY 4.0"
+standard_name_vocabulary = "CF Standard Name Table v82"
+institution = "University of Reading"
+program = "urbisphere"
+platform = "GCMD:In Situ Land-based Platforms,GCMD:GROUND-BASED OBSERVATIONS"
+platform_vocabulary = "GCMD:GCMD keywords"
+instrument = "GCMD:In Situ/Laboratory Instruments, GCMD:Profilers/Sounders, GCMD:PROFILERS"
+instrument_vocabulary = "GCMD:GCMD keywords"
+cdm_data_type = ""
+featureType = "timeSeries"
+metadata_link = ""
+references = ""
+
+[netCDF.vertical.variables.time.metadata]
+standard_name = "time"
+long_name = "time"
+coverage_content_type = "coordinate"
+
+[netCDF.vertical.variables.time.encoding]
+units = "minutes since 1970-01-01 00:00:00"
+calendar = "standard"
+dtype = "float64"
+
+[netCDF.vertical.variables.range.metadata]
+long_name = "range"
+units = "m"
+coverage_content_type = "coordinate"
+
+[netCDF.vertical.variables.range.encoding]
+dtype = "float32"
+
+[netCDF.vertical.variables.beta_raw.metadata]
+standard_name = "vertical_backscattering"
+long_name = "vertical backscattering"
+units = "sr-1 m-1"
+coverage_content_type = "physicalMeasurement"
+
+[netCDF.vertical.variables.beta_raw.encoding]
+dtype = "float32"
+
+[netCDF.vertical.variables.beta.metadata]
+standard_name = "vertical_backscattering_screened"
+long_name = "vertical backscattering screened"
+units = "sr-1 m-1"
+coverage_content_type = "physicalMeasurement"
+
+[netCDF.vertical.variables.beta.encoding]
+dtype = "float32"
+
+[netCDF.vertical.variables.w_wind_raw.metadata]
+standard_name = "vertical_wind"
+long_name = "vertical wind"
+units = "m s-1"
+coverage_content_type = "physicalMeasurement"
+
+[netCDF.vertical.variables.w_wind_raw.encoding]
+dtype = "float32"
+
+[netCDF.vertical.variables.w_wind.metadata]
+standard_name = "vertical_wind_screened"
+long_name = "vertical wind screened"
+units = "m s-1"
+coverage_content_type = "physicalMeasurement"
+
+[netCDF.vertical.variables.w_wind.encoding]
+dtype = "float32"
+
+[netCDF.vertical.variables.elevation.metadata]
+standard_name = "elevation_angle"
+long_name = "elevation angle"
+units = "degree"
+coverage_content_type = "physicalMeasurement"
+
+[netCDF.vertical.variables.elevation.encoding]
+dtype = "float32"
