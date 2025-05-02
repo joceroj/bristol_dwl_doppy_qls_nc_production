@@ -199,7 +199,7 @@ class WindProcessor:
 
         """
         n_ =4
-        if "range" not in ds.coords or ds.dims.get("range", 0) < n_:
+        if "range" not in ds.coords or ds.sizes.get("range", 0) < n_:
             return ds  # Not enough range bins or missing, skip trimming
         return ds.sel(range=ds.range[3:])
 
