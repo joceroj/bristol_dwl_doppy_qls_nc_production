@@ -14,6 +14,7 @@ from typing import Any
 import click
 import pandas as pd
 from functions.data import DataLoader, WindProcessor
+from functions.ql import HorizontalPlots
 from utils.cli_utils import validate_site
 from utils.tools import setup_logger
 
@@ -155,6 +156,20 @@ def run_pipeline(  # noqa: PLR0913
 
     processor.to_netcdf_vertical(stare_ds)
     processor.to_netcdf_horizontal(wind_ds)
+
+    # ---------------------------------------------------------------------
+    # # 5 - Plotting and saving QLs with processed data
+    # ---------------------------------------------------------------------
+
+    plotter = HorizontalPlots(
+        ds=wind_ds,
+        conf=conf,
+        site=site,
+        init_dates=init_dates,
+        output_dir=output_dir,
+    )
+
+    plotter.do_plot()
 
 
 if __name__ == "__main__":

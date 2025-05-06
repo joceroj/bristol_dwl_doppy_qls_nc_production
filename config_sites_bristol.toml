@@ -5,11 +5,19 @@ file_vad_mask = "VAD_*.hpl"
 
 [sites.BRDIFU]
 dir_mask = "/storage/research/actual01/disk1/urban/obs/LiDAR/Bristol/BRDIFU/%Y/%Y%m/%Y%m%d"
-wd_offset = 22
+wd_offset = 338
 
 [sites.BRFENS]
 dir_mask = "/storage/research/actual01/disk1/urban/obs/LiDAR/Bristol/BRFENS/%Y/%Y%m/%Y%m%d"
-wd_offset = 22
+wd_offset = 350
+
+[sites.BRPHYS]
+dir_mask = "/storage/research/actual01/disk1/urban/obs/LiDAR/Bristol/BRPHYS/%Y/%Y%m/%Y%m%d"
+wd_offset = 320
+
+[sites.BRPOMP]
+dir_mask = "/storage/research/actual01/disk1/urban/obs/LiDAR/Bristol/BRPOMP/%Y/%Y%m/%Y%m%d"
+wd_offset = 330
 
 [variables]
 
@@ -28,6 +36,18 @@ horizontal_output = [
     "wd",
     "azimuth_offset",
 ]
+
+[QL_params]
+
+Axis_label_font_size = 15
+Ticks_label_font_size = 13
+QL_background_color = [0.85, 0.85, 0.85]
+Y_axis_lim = 3500
+Y_ticker_max = 400
+Y_ticker_min = 200
+X_label = "Time [UTC]"
+Y_label = "Height [m agl]"
+Colorbar_size = [0.91, 0.11, 0.015, 0.77]
 
 
 [netCDF]
