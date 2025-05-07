@@ -14,7 +14,7 @@ from typing import Any
 import click
 import pandas as pd
 from functions.data import DataLoader, WindProcessor
-from functions.ql import HorizontalPlots
+from functions.ql import HorizontalPlots, VerticalPlots
 from utils.cli_utils import validate_site
 from utils.tools import setup_logger
 
@@ -55,8 +55,6 @@ logger = setup_logger()
     type=str,
     callback=validate_site,
 )
-@click.option("--save-wind-ql", "-sql", is_flag=True, help="Save PNG quick-look")
-# @click.option("--save-nc", "-snc", is_flag=True, help="Save NetCDF files")
 @click.option(
     "--output-dir",
     "-o",
@@ -69,13 +67,11 @@ def main(**kwargs: dict[str, Any]) -> None:
     run_pipeline(**kwargs)
 
 
-def run_pipeline(  # noqa: PLR0913
+def run_pipeline(
     conf_file: Path,
     date_start: click.DateTime,
     date_end: click.DateTime,
     site: str,
-    # save_nc: bool,
-    save_wind_ql: bool,
     output_dir: Path,
 ) -> None:
     """Process the main logic of this tool.
@@ -90,10 +86,6 @@ def run_pipeline(  # noqa: PLR0913
             The end date for processing (in '%Y%m%d' or '%Y-%m-%d' format).
         site: str
             The name of the site (must be an uppercase string, at least 2 characters).
-        save_nc: bool
-            Argument to save the NetCDF file.
-        save_wind_ql: bool
-            Argument to save the quick-look.
         output_dir: Path
             Creates an output directory.
 
@@ -161,7 +153,7 @@ def run_pipeline(  # noqa: PLR0913
     # # 5 - Plotting and saving QLs with processed data
     # ---------------------------------------------------------------------
 
-    plotter = HorizontalPlots(
+    plotter_hor = HorizontalPlots(
         ds=wind_ds,
         conf=conf,
         site=site,
@@ -169,13 +161,22 @@ def run_pipeline(  # noqa: PLR0913
         output_dir=output_dir,
     )
 
-    plotter.do_plot()
+    plotter_hor.do_plot_hor()
+
+    plotter_ver = VerticalPlots(
+        ds=stare_ds,
+        conf=conf,
+        site=site,
+        init_dates=init_dates,
+        output_dir=output_dir,
+    )
+    plotter_ver.do_plot_ver()
 
 
 if __name__ == "__main__":
     try:
         main()
-    except Exception as e:
+    except Exception as e:  # noqa: F841
         logger = setup_logger()
         logger.exception("Unexpected error occurred:")
         logger.exception(traceback.format_exc())

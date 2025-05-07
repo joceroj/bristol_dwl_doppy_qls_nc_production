@@ -305,14 +305,14 @@ def build_wind_dataset(wind: doppy.product.Wind) -> xr.Dataset:
             ]:
                 nc.add_variable(
                     name=f"{name}_raw",
-                    dimensions=("time", "height"),
+                    dimensions=("time", "range"),
                     units=units,
                     data=data,
                 )
 
                 nc.add_variable(
                     name=name,
-                    dimensions=("time", "height"),
+                    dimensions=("time", "range"),
                     units=units,
                     data=data,
                     mask=mask_raw,

@@ -46,8 +46,8 @@ Y_axis_lim = 3500
 Y_ticker_max = 400
 Y_ticker_min = 200
 X_label = "Time [UTC]"
-Y_label = "Height [m agl]"
-Colorbar_size = [0.91, 0.11, 0.015, 0.77]
+Y_label = "Range [m agl]"
+Colorbar_size = [0.97, 0.09, 0.015, 0.88]
 
 
 [netCDF]
