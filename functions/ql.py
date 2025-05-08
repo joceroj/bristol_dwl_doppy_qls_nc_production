@@ -110,7 +110,7 @@ class BasePlotter:
         plt.setp(ax.spines.values(), lw=1.5)
 
         ax.tick_params(
-            which="major", labelsize=self.conf["QL_params"]["Ticks_label_font_size"]
+            which="major", labelsize=self.conf["QL_params"]["Ticks_label_font_size"],
         )
         ax.tick_params(
             axis="x",
@@ -262,8 +262,16 @@ class HorizontalPlots(BasePlotter):
 
             self._ws(date, self.ds.ws, ax[0], fig)
             ax[0].set_xlabel("")
+            ax[0].set_title(
+                    "Screened horizontal wind speed",
+                    fontsize=self.conf["QL_params"]["Axis_label_font_size"],
+                )
 
             self._wd(date, self.ds.wd, ax[1], fig)
+            ax[1].set_title(
+                    "Screened horizontal wind direction",
+                    fontsize=self.conf["QL_params"]["Axis_label_font_size"],
+                )
 
             filename = f"{self.site}_Horizontal_ws_wd_{date:%Y-%m-%d}.png"
             output_file = self.output_dir / filename
@@ -338,8 +346,16 @@ class VerticalPlots(BasePlotter):
 
             self._w(date, self.ds.w_wind, ax[0], fig)
             ax[0].set_xlabel("")
+            ax[0].set_title(
+                "Screened vertical velocity (doppler velocity)",
+                fontsize=self.conf["QL_params"]["Axis_label_font_size"],
+            )
 
             self._beta(date, self.ds.beta, ax[1], fig)
+            ax[1].set_title(
+                "Screened beta",
+                fontsize=self.conf["QL_params"]["Axis_label_font_size"],
+            )
 
             filename = f"{self.site}_Vertical_w_beta_{date:%Y-%m-%d}.png"
             output_file = self.output_dir / filename
